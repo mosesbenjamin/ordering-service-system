@@ -9,9 +9,14 @@ module.exports = {
   list: function (req, res) {
     Orders.find({}).exec(function (err, orders) {
       if (err) {
-        res.send(500, { error: "Database Error" });
+        res.status(500).send({ error: "Database Error" });
       }
-      res.view("list", { orders: orders });
+
+      if (orders.length === 0) {
+        res.view("add");
+      } else if (orders.length > 0) {
+        res.view("list", { orders: orders });
+      }
     });
   },
   add: function (req, res) {
@@ -23,7 +28,7 @@ module.exports = {
 
     Orders.create({ quantity: quantity, price: price }).exec(function (err) {
       if (err) {
-        res.send(500, { error: "Database Error" });
+        res.status(500).send({ error: "Database Error" });
       }
 
       res.redirect("/orders/list");
@@ -32,7 +37,7 @@ module.exports = {
   delete: function (req, res) {
     Orders.destroy({ id: req.params.id }).exec(function (err) {
       if (err) {
-        res.send(500, { error: "Database Error" });
+        res.status(500).send({ error: "Database Error" });
       }
 
       res.redirect("/orders/list");
@@ -43,7 +48,7 @@ module.exports = {
   edit: function (req, res) {
     Orders.findOne({ id: req.params.id }).exec(function (err, order) {
       if (err) {
-        res.send(500, { error: "Database Error" });
+        res.status(500).send({ error: "Database Error" });
       }
 
       res.view("edit", { order: order });
@@ -58,7 +63,7 @@ module.exports = {
       { quantity: quantity, price: price }
     ).exec(function (err) {
       if (err) {
-        res.send(500, { error: "Database Error" });
+        res.status(500).send({ error: "Database Error" });
       }
 
       res.redirect("/orders/list");
