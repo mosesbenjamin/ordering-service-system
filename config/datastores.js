@@ -57,4 +57,10 @@ module.exports.datastores = {
   //   port: 27017,
   //   database: "orderservice",
   // },
+
+  // heroku_postgres: {
+  //   adapter: "sails-postgresql",
+  //   url: "process.env.DATABASE_URL",
+  //   ssl: false
+  // }
 };
