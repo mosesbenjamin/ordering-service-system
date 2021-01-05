@@ -12,7 +12,7 @@ module.exports = {
         res.status(500).send({ error: "Database Error" });
       }
 
-      if (orders.length === 0) {
+      if (orders.length === 0 || orders.length === undefined) {
         res.view("add");
       } else if (orders.length > 0) {
         res.view("list", { orders: orders });
