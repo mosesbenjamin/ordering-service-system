@@ -134,9 +134,7 @@ module.exports = {
      *                                                                          *
      ***************************************************************************/
     cors: {
-      // allowOrigins: [
-      //   'https://example.com',
-      // ]
+      allowOrigins: ["https://hidden-temple-79188.herokuapp.com"],
     },
   },
 
