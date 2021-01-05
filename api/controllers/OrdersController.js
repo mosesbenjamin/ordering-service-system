@@ -13,6 +13,14 @@ module.exports = {
       }
 
       if (!orders || orders.length === 0) {
+        Orders.create({ quantity: "5", price: "3900" }).exec(function (err) {
+          if (err) {
+            res.status(500).send({ error: "Database Error" });
+          }
+
+          res.redirect("/orders/list");
+        });
+
         res.view("add");
       } else if (orders.length > 0) {
         res.view("list", { orders: orders });
