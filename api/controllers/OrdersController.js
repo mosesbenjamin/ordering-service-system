@@ -13,7 +13,7 @@ module.exports = {
       }
 
       if (!orders || orders.length === 0) {
-        Orders.create({ quantity: "5", price: "3900" }).exec(function (err) {
+        Orders.create({ quantity: "5", price: "4000" }).exec(function (err) {
           res.redirect("/");
         });
       } else if (orders.length > 0) {
