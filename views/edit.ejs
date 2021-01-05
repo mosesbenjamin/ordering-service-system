@@ -1,0 +1,18 @@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="/orders/list">Orders</a>
+    </li>
+    <li class="breadcrumb-item active">Edit</li>
+</ol>
+<h1 class="display-4">Edit Order</h1>
+<form method="post" action="/orders/update/<%= order.id %>">
+    <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="text" name="quantity" class="form-control" value="<%= order.quantity %>">
+    </div>
+    <div class="form-group">
+        <label for="price">Price</label>
+        <input type="text" name="price" class="form-control"  value="<%= order.price %>">
+    </div>
+    <input type="submit" value="submit" class="btn btn-primary">
+</form>
