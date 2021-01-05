@@ -24,5 +24,7 @@ module.exports = {
       type: "string",
     },
   },
+
+  datastore: "local_postgres",
   // datastore: "mongoDB",
 };
